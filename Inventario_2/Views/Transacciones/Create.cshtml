@@ -1,0 +1,52 @@
+﻿@model Inventario_2.Models.Transaccione
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="margin: auto; font-size: 2rem; font-weight: bold;">Crear registro</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TipoTransaccion" class="control-label"></label>
+                <select asp-for="TipoTransaccion" class="form-control">
+                    <option value="Entrada">Entrada</option>
+                    <option value="Salida">Salida</option>
+                </select>
+                <span asp-validation-for="TipoTransaccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdArticulos" class="control-label"></label>
+                <select asp-for="IdArticulos" class="form-control" asp-items="ViewBag.IdArticulos"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cantidad" class="control-label"></label>
+                <input asp-for="Cantidad" class="form-control" />
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>
+            
+            <br/>
+            <div class="d-flex">
+                <div class="form-group" style="margin-right: 5px;">
+                    <input type="submit" value="Crear" class="btn btn-success" />
+                </div>
+                <div style="margin-left: 5px;">
+                    <a class="btn btn-danger" asp-action="Index">Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

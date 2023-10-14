@@ -1,0 +1,51 @@
+﻿@model Inventario_2.Models.Transaccione
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 style="margin: auto; font-size: 2rem; font-weight: bold;">Eliminar registro</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoTransaccion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TipoTransaccion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdArticulosNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdArticulosNavigation.Descripcion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdTransaccion" />
+        <div class="d-flex">
+            <input type="submit" style="margin-right: 5px;" value="Eliminar" class="btn btn-danger" />
+            <a asp-action="Index" style="margin-left: 5px;" class="btn btn-secondary">Volver</a>
+        </div>
+    </form>
+</div>
